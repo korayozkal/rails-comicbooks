@@ -1,2 +1,4 @@
 class Comicbook < ApplicationRecord
+    
+
 end
