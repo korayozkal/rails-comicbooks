@@ -28,7 +28,7 @@ before_action :find_comicbook, only: [:show, :edit, :update, :destroy]
 
     def update
 
-        if @comicbook.update(book_params)
+        if @comicbook.update(comicbook_params)
            redirect_to @comicbook, notice: 'Book was successfully updated.'
         else 
            render :edit
@@ -43,12 +43,14 @@ before_action :find_comicbook, only: [:show, :edit, :update, :destroy]
 
     def find_comicbook
         @comicbook = Comicbook.find(params[:id])
+        #@comicbook = ComicBook.find_by(id: params[:id])
     end 
 
     def book_params
-        params.require(:book).permit(:title, :number, :writer, :artist, :publisher)
+        params.require(:comicbook).permit(:title, :number, :writer, :artist, :publisher)
     end
 
+    
 
     
 
