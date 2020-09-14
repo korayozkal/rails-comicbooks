@@ -20,7 +20,7 @@ before_action :find_comicbook, only: [:show, :edit, :update, :destroy]
     #comicbook.user = current_user  
     @comicbook = current_user.comicbooks.build(comicbook_params)
         if @comicbook.save
-            redirect_to @comicbook, notice: 'Comicbook was successfully created.'
+            redirect_to @comicbook, notice: 'Comicbook is created.'
         else
             render :new
         end
@@ -29,7 +29,7 @@ before_action :find_comicbook, only: [:show, :edit, :update, :destroy]
     def update
 
         if @comicbook.update(comicbook_params)
-           redirect_to @comicbook, notice: 'Book was successfully updated.'
+           redirect_to @comicbook, notice: 'Comicbook is successfully updated.'
         else 
            render :edit
         end 
