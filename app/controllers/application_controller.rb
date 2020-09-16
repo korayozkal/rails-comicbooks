@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in
-  before_action :redirect_if_logged_out
+  before_action :if_logged_out
 
   private
   def current_user
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def redirect_if_logged_out
+  def if_logged_out
     unless logged_in
       redirect_to root_path, notice: "Please login"
     end
