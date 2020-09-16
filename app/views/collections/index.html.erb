@@ -1,0 +1,6 @@
+<h2>Reviews</h2>
+<% @collections.each do |collection| %>
+<p>Rating: <%= collection.rating %></p>
+<p><%= collection.review%></p>
+<p>Rated by:<%= collection.user.username %></p>
+<% end %>

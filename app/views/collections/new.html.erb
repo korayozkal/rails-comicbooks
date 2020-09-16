@@ -1,0 +1,28 @@
+<%= form_for [@comicbook, @collection] do |f| %>
+<% if @collection.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@collection.errors.count, "error") %> prohibited this Review from being saved:</h2>
+
+  <ul>
+    <% @collection.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= f.label :rating %>
+  <%= f.select(:rating, [1,2,3,4,5], :prompt => 'Rating (1-5)') %>
+</div>
+
+<div class="field">
+  <%= f.label :review %>
+  <%= f.text_area :review %>
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>

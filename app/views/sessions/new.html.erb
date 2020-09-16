@@ -1,0 +1,13 @@
+<h1>Log in</h1>
+<% if @error %>
+<div id="error_explanation">
+  <p><%= @error %></p>
+</div>
+<% end %>
+<%= form_tag('/login') do %>
+<%= label_tag :username %>
+<%= text_field_tag :username %>
+<%= label_tag :password %>
+<%= password_field_tag :password %>
+<%= submit_tag 'Sign In' %>
+<% end %>

@@ -8,6 +8,7 @@ post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 
 resources :users, except: [:new]
+
 resources :comicbooks do 
   resources :reviews
 end 
