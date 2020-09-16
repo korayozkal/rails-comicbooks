@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<h1>All Comicbooks</h1>
+<%= render 'comicbook', comicbook: @comicbook %>
+<%= link_to 'Review this Comicbook', new_comicbook_collection_path(@comicbook) %>
+
+<h2>Reviews</h2>
+<% @book.collection.each do |r| %>
+<p>Rating: <%= r.rating %></p>
+<p><%= r.review%></p>
+<p>- <%= r.user.username %></p>
+<% end %>
+<%= link_to 'See All Reviews for this Book', comicbook_collections_path(@comicbook) %>

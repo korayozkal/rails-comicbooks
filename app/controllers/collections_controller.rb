@@ -6,7 +6,7 @@ class CollectionsController < ApplicationController
       end
     
       def create
-        @collection = current_user.reviews.build(collection_params)
+        @collection = current_user.collections.build(collection_params)
         if @collection.save
           redirect_to @collection.book, notice: "Review successfully created."
         else
@@ -21,3 +21,9 @@ class CollectionsController < ApplicationController
       end
     
 end
+
+
+#collections controller (create)
+
+#new_user.collections.create(comicbook: new_comicbook, rating:  "xyz"  , review: "xyz" )
+

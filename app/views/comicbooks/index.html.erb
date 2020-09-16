@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<h1>List of All Comicbooks</h1>
+
+<% @comicbooks.each do |comicbook| %>
+<p><%= link_to comicbook.title, "comicbook_path(comicbook)" %> , issue <%= comic_book.number %></p>
+
+<br>
+<%= link_to 'Create New Comicbook', new_comicbook_path %>

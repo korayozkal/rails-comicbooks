@@ -1,0 +1,11 @@
+<ul>
+  <li><%= comicbook.title %></li>
+  <li><%= comicbook.number %></li>
+  <li><%= comicbook.publisher %></li>
+  <li><%= comicbook.writer %></li>
+  <li><%= comicbook.artist %></li>
+  
+  <li><%= link_to 'Show', comicbook %></li>
+  <li><%= link_to 'Edit', edit_comicbook_path(comicbook) %></li>
+  <li><%= link_to 'Destroy', comicbook, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+</ul>

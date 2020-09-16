@@ -1,0 +1,32 @@
+%= form_for(@comicbook, local: true) do |form| %>
+<%= render 'shared/errors', instance: @comicbook %>
+
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</div>
+
+<div class="field">
+  <%= form.label :number %>
+  <%= form.number_field :number%>
+</div>
+
+<div class="field">
+  <%= form.label :publisher %>
+  <%= form.text_field :publisher %>
+</div>
+
+<div class="field">
+  <%= form.label :writer %>
+  <%= form.text_field :writer %>
+</div>
+
+<div class="field">
+  <%= form.label :artist %>
+  <%= form.text_field :artist %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
