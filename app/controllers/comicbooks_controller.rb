@@ -38,7 +38,8 @@ before_action :find_comicbook, only: [:show, :edit, :update, :destroy]
     def destroy
         @comicbook.destroy
         render :edit
-    
+    end 
+
     private
 
     def find_comicbook
@@ -50,8 +51,4 @@ before_action :find_comicbook, only: [:show, :edit, :update, :destroy]
         params.require(:comicbook).permit(:title, :number, :writer, :artist, :publisher)
     end
 
-    
-
-    
-
-
+end 

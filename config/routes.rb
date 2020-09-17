@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  
-root to: 'static#index' #update to welcome
+root to: 'static#index' 
   
 get '/signup', to: 'users#new'
 get '/login', to: 'sessions#new',  as: 'login' 

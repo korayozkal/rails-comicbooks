@@ -17,6 +17,10 @@ class UsersController < ApplicationController
       end
     end
     
+    def index
+    
+    end
+
     def update
     
     end
@@ -31,6 +35,6 @@ class UsersController < ApplicationController
       def user_params
         params.require(:user).permit(:username, :password)# maybe add email? 
       end
-    end
+
 
 end
