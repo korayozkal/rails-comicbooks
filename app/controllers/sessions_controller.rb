@@ -7,7 +7,7 @@ skip_before_action :redirect_if_logged_out
           session[:user_id] = @user.id
           redirect_to comicbooks_path
         else
-          @error = "Incorrect username and/or password"
+          @error = "Incorrect Username/Password"
           render :new
         end
     end

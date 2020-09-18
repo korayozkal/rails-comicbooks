@@ -14,12 +14,12 @@ delete '/logout' => 'sessions#destroy'
 
 
 resources :users
-
-#resources :users, except: [:new]
-
 resources :comicbooks 
 
-#check routes for all you actions 
-#check 
+resources :comicbooks do
+    resources :reviews, shallow: true
+  end
+
+
 
 end 

@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
     #before_action :set_comicbook, only: [:index, :new]
     #before_action :set_review, only: [:show, :edit, :update]
 
-
     def index
       @comicbook = Comicbook.find(params[:comicbook_id])
       @reviews = @comicbook.reviews
@@ -17,7 +16,7 @@ class ReviewsController < ApplicationController
     def create
       @review = current_user.reviews.build(review_params)
       if @reviews.save
-        edirect_to comicbook_reviews_path(@review.comicbook), notice: "Review successfully created."
+        redirect_to comicbook_reviews_path(@review.comicbook), notice: "Review successfully created."
       else
         render :new
       end
