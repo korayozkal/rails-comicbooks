@@ -1,6 +1,15 @@
 class ReviewsController < ApplicationController
-  #changed class names to reviews from collections to make more  
+
+
+#collections controller (create)
+
+#new_user.collections.create(comicbook: new_comicbook, rating:  "xyz"  , review: "xyz" )
+
+
+
   def new
+
+
         @collection = Collection.new
         @comicbook_id = params[:comicbook]
         @comicbooks = Comicbook.all
