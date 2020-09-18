@@ -12,21 +12,21 @@
 
 ActiveRecord::Schema.define(version: 2020_09_10_013625) do
 
-  create_table "collections", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "comicbook_id"
-    t.integer "rating"
-    t.text "review"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "comicbooks", force: :cascade do |t|
     t.string "name"
     t.integer "number"
     t.string "writer"
     t.string "artist"
     t.string "publisher"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "comicbook_id"
+    t.integer "rating"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

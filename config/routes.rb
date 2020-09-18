@@ -21,3 +21,5 @@ resources :comicbooks
 
 #check routes for all you actions 
 #check 
+
+end 
