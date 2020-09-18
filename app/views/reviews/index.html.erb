@@ -1,7 +1,14 @@
-<h2>Comicbook Reviews</h2>
-<% @reviews.each do |r| %>
-<p>Rating: <%= r.rating %></p>
+<h1>Comicbook Reviews</h1>
 
-<p>Review:<%= r.content%></p>
-<p> Reviewed by<%= r.user.username %></p>
+<% if @comicbook %>
+  <h2>Reviews for <%= @reviews.comicbook.title%></h2>
+<% else %>
+  <h2>All Reviews</h2>
 <% end %>
+
+<% @reviews.each do |r| %>
+<h3>Rating: <%= r.rating %></h3>
+<h3>Review:<%= r.comment%></h3>
+<h3>Reviewed by<%= r.user.username %></h3>
+<% end %>
+

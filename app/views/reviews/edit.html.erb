@@ -1,7 +1,9 @@
+<h1>Edit Comicbook Review</h1>
+
 <%= form_for @review do |f| %>
 <% if @review.errors.any? %>
 <div id="error_explanation">
-  <h2><%= pluralize(@review.errors.count, "error") %> prohibited this @review from being saved:</h2>
+  <h2><%= pluralize(@review.errors.count, "error") %> prohibited this Review from being saved:</h2>
 
   <ul>
     <% @review.errors.full_messages.each do |message| %>
@@ -17,8 +19,8 @@
 </div>
 
 <div class="field">
-  <%= f.label :content %>
-  <%= f.text_area :content %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
 </div>
 
 <div class="actions">

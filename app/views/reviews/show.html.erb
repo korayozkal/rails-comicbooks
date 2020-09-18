@@ -1,3 +1,10 @@
-<p>Rating: <%= @collection.rating %></p>
-<p><%= @collection.review%></p>
-<p>Rated by: <%= @collection.user.username %></p>
+<h1> </h1>
+<%= @review.comicbook.title%>
+
+<h2>Rating: <%= @review.rating %></p>
+<p>Review<%= @review.comment%></p>
+<p>Rated by: <%= @review.user.username %></p>
+
+<% if @review.user == current_user %>
+<%= link_to "Edit Comment", edit_review_path(@review)%>
+<% end %>
