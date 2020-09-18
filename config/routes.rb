@@ -1,23 +1,23 @@
 Rails.application.routes.draw do
  
 root to: 'static#index' 
-  
-get '/signup', to: 'users#new'
-get '/login', to: 'sessions#new',  as: 'login' 
-post '/login', to: 'sessions#create'  
-delete '/logout', to: 'sessions#destroy'
 
-resources :users, except: [:new]
+get '/signup' => 'users#new'
+post '/signup' => 'users#create'
 
-resources :comicbooks do 
-  resources :reviews
-end 
+#login route
+get '/login' => 'sessions#new'
+post '/login' => 'sessions#create'
 
-  #get '/signup' to: 'users#new'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+#logout route
+delete '/logout' => 'sessions#destroy'
 
-  #get '/login', to: 'sessions#new'   #, as: 'login'
-  #post '/login', to: 'sessions#create'
-  #delete '/logout', to: 'sessions#destroy'
-end 
 
+resources :users
+
+#resources :users, except: [:new]
+
+resources :comicbooks 
+
+#check routes for all you actions 
+#check 

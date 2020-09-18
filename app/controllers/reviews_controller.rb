@@ -1,5 +1,6 @@
-class CollectionsController < ApplicationController
-    def new
+class ReviewsController < ApplicationController
+  #changed class names to reviews from collections to make more sense   
+  def new
         @collection = Collection.new
         @comicbook_id = params[:comicbook]
         @comicbooks = Comicbook.all
