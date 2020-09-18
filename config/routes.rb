@@ -20,6 +20,4 @@ resources :comicbooks do
     resources :reviews, shallow: true
   end
 
-
-
 end 
