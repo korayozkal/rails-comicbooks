@@ -1,39 +1,57 @@
 class ReviewsController < ApplicationController
+    before_action :redirect_if_logged_out
+    #before_action :set_comicbook, only: [:index, :new]
+    #before_action :set_review, only: [:show, :edit, :update]
 
 
-#collections controller (create)
+    def index
+      @comicbook = Comicbook.find(params[:comicbook_id])
+      @reviews = @comicbook.reviews
+    end 
+    
+    def new 
+      @comicbook = Comicook.find(params[:comicbook_id])
+      @review = Review.new
+    end 
 
-#new_user.collections.create(comicbook: new_comicbook, rating:  "xyz"  , review: "xyz" )
-
-
-
-  def new
-
-
-        @collection = Collection.new
-        @comicbook_id = params[:comicbook]
-        @comicbooks = Comicbook.all
+    def create
+      @review = current_user.reviews.build(review_params)
+      if @reviews.save
+        edirect_to comicbook_reviews_path(@review.comicbook), notice: "Review successfully created."
+      else
+        render :new
       end
+    end
     
-      def create
-        @collection = current_user.collections.build(collection_params)
-        if @collection.save
-          redirect_to @collection.book, notice: "Review successfully created."
-        else
-          render :new
-        end
+    def show
+       @review = Review.find(params[:id])
+    end
+  
+    def edit
+       @review = Review.find(params[:id])
+    end
+     
+    def update
+      @review = Review.find(params[:id])
+      if @review.update(review_params)
+        redirect_to comicbook_reviews_path(@review.comicbook)
+      else
+        render :edit
       end
+    end
+
+    private
+    def review_params
+        params.require(:review).permit(:rating, :comment)
     
-      private
-    
-      def collection_params
-        params.require(:collection).permit(:rating, :comicbook_id, :review)
-      end
-    
+    end
+
+    #def set_comicbook
+         #@comicbook = Comicbook.find(params[:comicbook_id])
+    #end 
+
+     #def set_review
+          #@review = Review.find(params[:id])
+     #end 
+
 end
-
-
-#collections controller (create)
-
-#new_user.collections.create(comicbook: new_comicbook, rating:  "xyz"  , review: "xyz" )
-

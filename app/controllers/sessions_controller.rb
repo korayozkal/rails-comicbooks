@@ -12,7 +12,6 @@ skip_before_action :redirect_if_logged_out
         end
     end
 
-
      def destroy
          session.clear
          redirect_to root_path
