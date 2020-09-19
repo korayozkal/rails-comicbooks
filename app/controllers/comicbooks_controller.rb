@@ -24,10 +24,10 @@ class ComicbooksController < ApplicationController
     end
 
     def edit
-        if logged_in && current_user == @comicbook.user
-        redirect_to comicbooks_path
-        else 
 
+        #redirect unless they are logged_in and right user
+        if logged_in && current_user == @comicbook.user
+    
     end
 
     def update
@@ -44,6 +44,8 @@ class ComicbooksController < ApplicationController
         if current_user == comicbook.user
         @comicbook.destroy
         redirect_to comicbooks_path
+        else 
+        #redirect to somewhere
         end
     end 
 

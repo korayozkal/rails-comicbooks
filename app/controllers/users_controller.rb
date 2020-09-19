@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       end
     end
     
+    # do not need an index
     def index
     
     end

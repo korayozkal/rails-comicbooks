@@ -14,7 +14,9 @@ class ReviewsController < ApplicationController
     end 
 
     def create
+      @comicbook = Comicook.find(params[:comicbook_id])
       @review = current_user.reviews.build(review_params)
+      @review.comicbook = @comicbook
       if @reviews.save
         redirect_to comicbook_reviews_path(@review.comicbook), notice: "Review successfully created."
       else
@@ -31,6 +33,7 @@ class ReviewsController < ApplicationController
     end
      
     def update
+      #current_user add this 
       @review = Review.find(params[:id])
       if @review.update(review_params)
         redirect_to comicbook_reviews_path(@review.comicbook)
